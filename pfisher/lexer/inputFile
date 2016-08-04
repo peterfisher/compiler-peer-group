@@ -1,0 +1,6 @@
+cat=dog
+if cat == dog
+    kittens=cat
+if dog>kittens
+    kittens=dog
+numbers=9001
