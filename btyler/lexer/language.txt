@@ -1,0 +1,9 @@
+IF='if'
+THEN='then'
+END='end'
+ID=[a-z]+
+NUM=[0-9]+
+ASSIGN='='
+LT='<'
+LE='<='
+EQ='=='
