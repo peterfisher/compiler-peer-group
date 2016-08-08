@@ -10,10 +10,10 @@ $Data::Dumper::Sortkeys = 1;
 
 use Lexer;
 
-my @tokens;
+my @lexemes;
 my $lex = Lexer->new(
     emit_cb => sub ($lexeme) {
-        push @tokens, $lexeme;
+        push @lexemes, $lexeme;
     }
 );
 
@@ -23,4 +23,4 @@ while (my $line = <>) {
     $lex->run()
 }
 
-say Dumper(\@tokens);
+say Dumper(\@lexemes);
