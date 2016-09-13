@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		D061D2EB1D44F93A007255C8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D061D2EA1D44F93A007255C8 /* main.swift */; };
+		D0780FAB1D6B8F60004BC00E /* parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0780FAA1D6B8F60004BC00E /* parser.swift */; };
+		D0780FAD1D6B9104004BC00E /* lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0780FAC1D6B9104004BC00E /* lexer.swift */; };
+		D0780FAF1D6CC250004BC00E /* tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0780FAE1D6CC250004BC00E /* tokens.swift */; };
+		D0DFBF701D6DBE4E00F2AABD /* grammar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DFBF6F1D6DBE4E00F2AABD /* grammar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +28,14 @@
 
 /* Begin PBXFileReference section */
 		D061D2E71D44F93A007255C8 /* lexer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = lexer; sourceTree = BUILT_PRODUCTS_DIR; };
-		D061D2EA1D44F93A007255C8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		D061D2EA1D44F93A007255C8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = main.swift; path = lexer/main.swift; sourceTree = "<group>"; };
+		D0780FAA1D6B8F60004BC00E /* parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = parser.swift; sourceTree = "<group>"; };
+		D0780FAC1D6B9104004BC00E /* lexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lexer.swift; sourceTree = "<group>"; };
+		D0780FAE1D6CC250004BC00E /* tokens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tokens.swift; sourceTree = "<group>"; };
+		D0780FB21D6CF3C9004BC00E /* go.grammar */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = go.grammar; sourceTree = "<group>"; };
+		D0780FB31D6CF8FB004BC00E /* parial.go.grammar */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = parial.go.grammar; sourceTree = "<group>"; };
+		D0780FB41D6CFED8004BC00E /* lisperator.grammar */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lisperator.grammar; sourceTree = "<group>"; };
+		D0DFBF6F1D6DBE4E00F2AABD /* grammar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = grammar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +52,9 @@
 		D061D2DB1D44F699007255C8 = {
 			isa = PBXGroup;
 			children = (
+				D0DFBF6F1D6DBE4E00F2AABD /* grammar.swift */,
+				D061D2EA1D44F93A007255C8 /* main.swift */,
+				D0780FA91D6B8F4B004BC00E /* parser */,
 				D061D2E91D44F93A007255C8 /* lexer */,
 				D061D2E81D44F93A007255C8 /* Products */,
 			);
@@ -57,9 +71,21 @@
 		D061D2E91D44F93A007255C8 /* lexer */ = {
 			isa = PBXGroup;
 			children = (
-				D061D2EA1D44F93A007255C8 /* main.swift */,
+				D0780FAC1D6B9104004BC00E /* lexer.swift */,
+				D0780FAE1D6CC250004BC00E /* tokens.swift */,
 			);
 			path = lexer;
+			sourceTree = "<group>";
+		};
+		D0780FA91D6B8F4B004BC00E /* parser */ = {
+			isa = PBXGroup;
+			children = (
+				D0780FAA1D6B8F60004BC00E /* parser.swift */,
+				D0780FB21D6CF3C9004BC00E /* go.grammar */,
+				D0780FB31D6CF8FB004BC00E /* parial.go.grammar */,
+				D0780FB41D6CFED8004BC00E /* lisperator.grammar */,
+			);
+			name = parser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,7 +144,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0780FAB1D6B8F60004BC00E /* parser.swift in Sources */,
+				D0780FAD1D6B9104004BC00E /* lexer.swift in Sources */,
 				D061D2EB1D44F93A007255C8 /* main.swift in Sources */,
+				D0DFBF701D6DBE4E00F2AABD /* grammar.swift in Sources */,
+				D0780FAF1D6CC250004BC00E /* tokens.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
