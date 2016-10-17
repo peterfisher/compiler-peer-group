@@ -19,18 +19,18 @@ class ZeamplVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ZeamplParser#var_decl.
-    def visitVar_decl(self, ctx:ZeamplParser.Var_declContext):
+    # Visit a parse tree produced by ZeamplParser#varDecl.
+    def visitVarDecl(self, ctx:ZeamplParser.VarDeclContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ZeamplParser#func_decl.
-    def visitFunc_decl(self, ctx:ZeamplParser.Func_declContext):
+    # Visit a parse tree produced by ZeamplParser#funcDecl.
+    def visitFuncDecl(self, ctx:ZeamplParser.FuncDeclContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ZeamplParser#arg_list.
-    def visitArg_list(self, ctx:ZeamplParser.Arg_listContext):
+    # Visit a parse tree produced by ZeamplParser#argList.
+    def visitArgList(self, ctx:ZeamplParser.ArgListContext):
         return self.visitChildren(ctx)
 
 
@@ -39,13 +39,13 @@ class ZeamplVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ZeamplParser#type_decl.
-    def visitType_decl(self, ctx:ZeamplParser.Type_declContext):
+    # Visit a parse tree produced by ZeamplParser#typeDecl.
+    def visitTypeDecl(self, ctx:ZeamplParser.TypeDeclContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ZeamplParser#class_decl.
-    def visitClass_decl(self, ctx:ZeamplParser.Class_declContext):
+    # Visit a parse tree produced by ZeamplParser#classDecl.
+    def visitClassDecl(self, ctx:ZeamplParser.ClassDeclContext):
         return self.visitChildren(ctx)
 
 
@@ -74,8 +74,8 @@ class ZeamplVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ZeamplParser#expr_stmt.
-    def visitExpr_stmt(self, ctx:ZeamplParser.Expr_stmtContext):
+    # Visit a parse tree produced by ZeamplParser#exprStmt.
+    def visitExprStmt(self, ctx:ZeamplParser.ExprStmtContext):
         return self.visitChildren(ctx)
 
 
@@ -84,33 +84,33 @@ class ZeamplVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ZeamplParser#if_stmt.
-    def visitIf_stmt(self, ctx:ZeamplParser.If_stmtContext):
+    # Visit a parse tree produced by ZeamplParser#ifStmt.
+    def visitIfStmt(self, ctx:ZeamplParser.IfStmtContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ZeamplParser#while_stmt.
-    def visitWhile_stmt(self, ctx:ZeamplParser.While_stmtContext):
+    # Visit a parse tree produced by ZeamplParser#whileStmt.
+    def visitWhileStmt(self, ctx:ZeamplParser.WhileStmtContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ZeamplParser#for_stmt.
-    def visitFor_stmt(self, ctx:ZeamplParser.For_stmtContext):
+    # Visit a parse tree produced by ZeamplParser#forStmt.
+    def visitForStmt(self, ctx:ZeamplParser.ForStmtContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ZeamplParser#return_stmt.
-    def visitReturn_stmt(self, ctx:ZeamplParser.Return_stmtContext):
+    # Visit a parse tree produced by ZeamplParser#returnStmt.
+    def visitReturnStmt(self, ctx:ZeamplParser.ReturnStmtContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ZeamplParser#break_stmt.
-    def visitBreak_stmt(self, ctx:ZeamplParser.Break_stmtContext):
+    # Visit a parse tree produced by ZeamplParser#breakStmt.
+    def visitBreakStmt(self, ctx:ZeamplParser.BreakStmtContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ZeamplParser#continue_stmt.
-    def visitContinue_stmt(self, ctx:ZeamplParser.Continue_stmtContext):
+    # Visit a parse tree produced by ZeamplParser#continueStmt.
+    def visitContinueStmt(self, ctx:ZeamplParser.ContinueStmtContext):
         return self.visitChildren(ctx)
 
 
@@ -174,13 +174,28 @@ class ZeamplVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ZeamplParser#tuple_literal.
-    def visitTuple_literal(self, ctx:ZeamplParser.Tuple_literalContext):
+    # Visit a parse tree produced by ZeamplParser#intLiteral.
+    def visitIntLiteral(self, ctx:ZeamplParser.IntLiteralContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ZeamplParser#list_literal.
-    def visitList_literal(self, ctx:ZeamplParser.List_literalContext):
+    # Visit a parse tree produced by ZeamplParser#boolLiteral.
+    def visitBoolLiteral(self, ctx:ZeamplParser.BoolLiteralContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ZeamplParser#stringLiteral.
+    def visitStringLiteral(self, ctx:ZeamplParser.StringLiteralContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ZeamplParser#tupleLiteral.
+    def visitTupleLiteral(self, ctx:ZeamplParser.TupleLiteralContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ZeamplParser#listLiteral.
+    def visitListLiteral(self, ctx:ZeamplParser.ListLiteralContext):
         return self.visitChildren(ctx)
 
 
