@@ -112,7 +112,7 @@ class Lexer {
     
     func readRepl() -> Token {
         let string = self.read_while_tag(Tag.Relop)
-        var token = Token(tag: Tag.Relop, value: "")
+        let token = Token(tag: Tag.Relop, value: "")
         
         switch string {
         case "=":

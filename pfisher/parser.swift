@@ -8,7 +8,7 @@ class LLParserOne {
     
     var firstSet: [Grammar : [Grammar]]
     var followSet: [Grammar : [Grammar]]
-    var parsingTable: [NonTerminal: [Terminal: [NonTerminal]]]
+    var parsingTable: [NonTerminal: [Terminal: NonTerminal?]]
     
     init() {
         self.firstSet = LLParserOne.getFirstSetforLanguage(productions)
@@ -16,31 +16,44 @@ class LLParserOne {
         self.parsingTable = LLParserOne.createParsingTableForSets(firstSet, followSet: followSet)
     }
     
-    class func createParsingTableForSets(firstSet: [Grammar : [Grammar]], followSet: [Grammar : [Grammar]]) -> [NonTerminal: [Terminal: [NonTerminal]]] {
-        var parsingTable = [NonTerminal: [Terminal: [NonTerminal]]]()
+    func printParsingTable() {
+        print("PARSING TABLE")
+        
+        for (production, inputTable) in self.parsingTable {
+            for terminal in allTerminals {
+                if inputTable[terminal]! != nil {
+                    let productionName =  inputTable[terminal]!!.name
+                    print("Production: \(production.name); Input Symbol: \(terminal.value), allows production: \(productionName)")
+                } else {
+                    print("Production: \(production.name); Input Symbol: \(terminal.value), allows production: ERROR")
+
+                }
+            }
+        }
+    }
+    
+    class func createParsingTableForSets(firstSet: [Grammar : [Grammar]], followSet: [Grammar : [Grammar]]) -> [NonTerminal: [Terminal:NonTerminal?]] {
+        var parsingTable = [NonTerminal: [Terminal: NonTerminal?]]()
         
         //Intialize empty parsing table
         for production in productions {
-            parsingTable[production] = [Terminal: [NonTerminal]]()
+            parsingTable[production] = [Terminal: NonTerminal]()
             for terminal in allTerminals {
-                parsingTable[production]![terminal] = [NonTerminal]()
+                parsingTable[production]!.updateValue(nil, forKey: terminal)
             }
         }
         
         for production in productions {
             
-            // For each production A -> α of grammar do the following:
-            if production.valueList![0] is Terminal {
-                continue
-            }
-            
             let firstProductionNonTerminal = production.valueList![0]
-            let productionFirstTerminals: [Terminal] = (firstSet[production]!.filter { $0 is Terminal } as! [Terminal])
-            let productionFollowTerminals: [Terminal] = (followSet[production]!.filter {$0 is Terminal } as! [Terminal])
+            let productionFirstTerminals: [Terminal]? = (firstSet[production]?.filter { $0 is Terminal }) as? [Terminal]
+            let productionFollowTerminals: [Terminal] = (followSet[production]?.filter {$0 is Terminal } as! [Terminal])
             
             // For each terminal a in FIRST(A), add A -> α to M[A,a]
-            for terminalSymbol in productionFirstTerminals {
-                parsingTable[production]![terminalSymbol]!.append(production)
+            if productionFirstTerminals != nil {
+                for terminalSymbol in productionFirstTerminals! {
+                    parsingTable[production]![terminalSymbol] = production
+                }
             }
             
             //If ε is in FIRST(α), then for each terminal b in FOLLOW(A), add A -> α to M[A,b]. If ε is in FIRST(α) and $ is in FOLLOW(A), add A -> α to M[A,$].
@@ -48,13 +61,16 @@ class LLParserOne {
                 // then for each terminal b in FOLLOW(A)
                 for terminal in productionFollowTerminals {
                     // add A -> α to M[A,b]
-                    parsingTable[production]![terminal]!.append(production)
+                    parsingTable[production]![terminal] = production
                 }
             }
             // If ε is in FIRST(α) and $ is in FOLLOW(A)
+            if firstSet[firstProductionNonTerminal] == nil || followSet[firstProductionNonTerminal] == nil {
+                continue
+            }
             if firstSet[firstProductionNonTerminal]!.contains(endMarkerTerminal) && followSet[firstProductionNonTerminal]!.contains(endMarkerTerminal) {
                 // add A -> α to M[A,$].
-                parsingTable[production]![endMarkerTerminal]!.append(production)
+                parsingTable[production]![endMarkerTerminal] = production
             }
         }
         
@@ -106,11 +122,12 @@ class LLParserOne {
     
     private class func getFirstSetforLanguage(productions: [Grammar]) -> [Grammar: [Grammar]] {
         
+        // Define FIRST(α),where α is any string of grammar symbols, to be the set of terminals that begin strings derived from α.
         var _firstSet = [Grammar: [Grammar]]()
         
         for production in productions {
-            for symbol in production {
-                _firstSet[symbol] = LLParserOne.findAllStartTerminalsForProduction(symbol)
+            for symbol in production.valueList! {
+                _firstSet[symbol] = LLParserOne.findAllStartTerminalsForSymbol(symbol)
             }
         }
         
@@ -125,7 +142,7 @@ class LLParserOne {
         } else if symbol is NonTerminal {
             firstTerminals.append(LLParserOne.findFirstTerminalsForNonterminal(symbol))
         } else if symbol is SymbolList {
-            firstTerminals.appendContentsOf(LLParserOne.findAllStartTerminalsForProduction(symbol))
+            firstTerminals.appendContentsOf(LLParserOne.findAllStartTerminalsForSymbol(symbol))
         }
         
         return firstTerminals

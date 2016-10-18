@@ -13,9 +13,9 @@ func main() {
     
     let parser = LLParserOne()
     for (nt, firstSet) in parser.firstSet {
-        let production = nt as! NonTerminal
+        let symbol = nt
         for terminal in firstSet {
-            print("Production: \(production.name); First Terminal: \(terminal.value)")
+            print("Production: \(symbol.name); First Terminal: \(terminal.value)")
         }
     }
     
@@ -26,7 +26,7 @@ func main() {
         }
     }
     
-    
+    parser.printParsingTable()
 }
 
 main()

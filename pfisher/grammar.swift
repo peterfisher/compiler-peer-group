@@ -96,16 +96,14 @@ let functionParameterNonTerminal = NonTerminal(value: [keywordTerminal, commaTer
 
 // === Productions ===
 let functionLabda = NonTerminal(value: [lambdaTerminal,
-    keywordTerminal, paranOpenTerminal, functionParameterNonTerminal, paranCloseTerinal], name: "func")
+    keywordTerminal, paranOpenTerminal, functionParameterNonTerminal, paranCloseTerinal], name: "funcLambda")
 let functionNormal = NonTerminal(value: [functionStartTerminal,
-    keywordTerminal, paranOpenTerminal, functionParameterNonTerminal, paranCloseTerinal], name: "func")
+    keywordTerminal, paranOpenTerminal, functionParameterNonTerminal, paranCloseTerinal], name: "funcλ")
 // === All Arrays ===
 let productions: [NonTerminal] = [functionLabda, functionNormal]
 let allNonTerminals: [NonTerminal] = [functionParameterNonTerminal, functionLabda, functionNormal]
 let allTerminals: [Terminal] = [functionStartTerminal,lambdaTerminal,paranOpenTerminal,paranCloseTerinal,keywordTerminal,commaTerminal,equalsTerminal,additionTerminal,subtractionTerminal, endMarkerTerminal]
-let allLanguageSymbols = [Grammar]()
-allLanguageSymbols.append(allNonTerminals)
-allLanguageSymbols.append(allTerminals)
+let allLanguageSymbols = [functionStartTerminal,lambdaTerminal,paranOpenTerminal,paranCloseTerinal,keywordTerminal,commaTerminal,equalsTerminal,additionTerminal,subtractionTerminal, functionParameterNonTerminal]
 
 // === Special Grammars ===
 let endMarkerTerminal = Terminal(regex: "ε", name: "end marker", uid: 10)
