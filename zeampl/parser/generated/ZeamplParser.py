@@ -5,7 +5,7 @@ from io import StringIO
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3=")
+        buf.write("\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3>")
         buf.write("\u015e\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
         buf.write("\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16")
         buf.write("\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\4\23\t\23")
@@ -195,7 +195,7 @@ class ZeamplParser ( Parser ):
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "BOOL", "ID", "INT", "STRING" ]
+                      "BOOL", "ID", "INT", "STRING", "WS" ]
 
     RULE_module = 0
     RULE_decl = 1
@@ -305,6 +305,7 @@ class ZeamplParser ( Parser ):
     ID=57
     INT=58
     STRING=59
+    WS=60
 
     def __init__(self, input:TokenStream):
         super().__init__(input)
@@ -2315,6 +2316,8 @@ class ZeamplParser ( Parser ):
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
+            self._expr = None # ExprContext
+            self.x = list() # of ExprContexts
 
         def expr(self, i:int=None):
             if i is None:
@@ -2348,14 +2351,16 @@ class ZeamplParser ( Parser ):
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << ZeamplParser.T__5) | (1 << ZeamplParser.T__15) | (1 << ZeamplParser.T__43) | (1 << ZeamplParser.T__44) | (1 << ZeamplParser.T__53) | (1 << ZeamplParser.BOOL) | (1 << ZeamplParser.ID) | (1 << ZeamplParser.INT) | (1 << ZeamplParser.STRING))) != 0):
                 self.state = 318
-                self.expr()
+                localctx._expr = self.expr()
+                localctx.x.append(localctx._expr)
                 self.state = 319
                 self.match(ZeamplParser.T__7)
                 self.state = 328
                 _la = self._input.LA(1)
                 if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << ZeamplParser.T__5) | (1 << ZeamplParser.T__15) | (1 << ZeamplParser.T__43) | (1 << ZeamplParser.T__44) | (1 << ZeamplParser.T__53) | (1 << ZeamplParser.BOOL) | (1 << ZeamplParser.ID) | (1 << ZeamplParser.INT) | (1 << ZeamplParser.STRING))) != 0):
                     self.state = 320
-                    self.expr()
+                    localctx._expr = self.expr()
+                    localctx.x.append(localctx._expr)
                     self.state = 325
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
@@ -2363,7 +2368,8 @@ class ZeamplParser ( Parser ):
                         self.state = 321
                         self.match(ZeamplParser.T__7)
                         self.state = 322
-                        self.expr()
+                        localctx._expr = self.expr()
+                        localctx.x.append(localctx._expr)
                         self.state = 327
                         self._errHandler.sync(self)
                         _la = self._input.LA(1)
@@ -2387,6 +2393,8 @@ class ZeamplParser ( Parser ):
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
+            self._expr = None # ExprContext
+            self.x = list() # of ExprContexts
 
         def expr(self, i:int=None):
             if i is None:
@@ -2420,7 +2428,8 @@ class ZeamplParser ( Parser ):
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << ZeamplParser.T__5) | (1 << ZeamplParser.T__15) | (1 << ZeamplParser.T__43) | (1 << ZeamplParser.T__44) | (1 << ZeamplParser.T__53) | (1 << ZeamplParser.BOOL) | (1 << ZeamplParser.ID) | (1 << ZeamplParser.INT) | (1 << ZeamplParser.STRING))) != 0):
                 self.state = 335
-                self.expr()
+                localctx._expr = self.expr()
+                localctx.x.append(localctx._expr)
                 self.state = 340
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
@@ -2428,7 +2437,8 @@ class ZeamplParser ( Parser ):
                     self.state = 336
                     self.match(ZeamplParser.T__7)
                     self.state = 337
-                    self.expr()
+                    localctx._expr = self.expr()
+                    localctx.x.append(localctx._expr)
                     self.state = 342
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)

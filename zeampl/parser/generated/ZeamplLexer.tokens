@@ -57,6 +57,7 @@ BOOL=56
 ID=57
 INT=58
 STRING=59
+WS=60
 'var'=1
 '='=2
 ';'=3

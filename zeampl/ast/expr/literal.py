@@ -41,8 +41,16 @@ class TupleLiteral(Literal):
         super().__init__(r)
         self._expressions = expressions
 
+    @property
+    def expressions(self):
+        return self._expressions
+
 
 class ListLiteral(Literal):
     def __init__(self, r: Range, expressions: List[Expression]):
         super().__init__(r)
         self._expressions = expressions
+
+    @property
+    def expressions(self):
+        return self._expressions
