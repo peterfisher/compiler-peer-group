@@ -7,7 +7,7 @@ from typing import List
 
 
 class ZeamplASTBuilder(ZeamplVisitor):
-    def __init__(self, token_stream: antlr4.CommonTokenStream):
+    def __init__(self, token_stream: antlr4.BufferedTokenStream):
         self._token_stream = token_stream
 
     def get_range(self, ctx: antlr4.ParserRuleContext) -> ast.Range:
@@ -37,3 +37,6 @@ class ZeamplASTBuilder(ZeamplVisitor):
     def visitListLiteral(self, ctx: ZeamplParser.ListLiteralContext):
         return ast.ListLiteral(self.get_range(ctx), self.get_expressions(ctx.x))
 
+    def visitIdentifierExpression(self, ctx: ZeamplParser.IdentifierExpressionContext):
+        token = ctx.ID().symbol  # type: antlr4.Token
+        return ast.IdentifierExpression(self.get_range(ctx), token.text)

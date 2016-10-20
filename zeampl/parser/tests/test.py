@@ -76,3 +76,14 @@ class TestParser(unittest.TestCase):
         self.assertIsInstance(x.expressions[2], ast.TupleLiteral)
         self.assertEqual(x.expressions[2].range, ast.Range('<empty>', 1, 20, 1, 22))
         self.assertEqual(len(x.expressions[2].expressions), 0)
+
+    def test_identifier(self):
+        x = parser.parse_expression('x1')
+        self.assertIsInstance(x, ast.IdentifierExpression)
+        self.assertEqual(x.name, 'x1')
+        x = parser.parse_expression('_')
+        self.assertIsInstance(x, ast.IdentifierExpression)
+        self.assertEqual(x.name, '_')
+        x = parser.parse_expression('Xyz')
+        self.assertIsInstance(x, ast.IdentifierExpression)
+        self.assertEqual(x.name, 'Xyz')

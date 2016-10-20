@@ -169,6 +169,11 @@ class ZeamplVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by ZeamplParser#identifierExpression.
+    def visitIdentifierExpression(self, ctx:ZeamplParser.IdentifierExpressionContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by ZeamplParser#literal.
     def visitLiteral(self, ctx:ZeamplParser.LiteralContext):
         return self.visitChildren(ctx)

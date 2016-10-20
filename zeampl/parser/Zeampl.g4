@@ -44,7 +44,8 @@ expr1
     )*
   ;
 
-expr0: ID | literal | '(' expr ')' ;
+expr0: identifierExpression | literal | '(' expr ')' ;
+identifierExpression: ID ;
 literal: intLiteral | boolLiteral | stringLiteral | tupleLiteral | listLiteral;
 intLiteral: INT;
 boolLiteral: BOOL;
