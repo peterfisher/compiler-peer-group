@@ -5,7 +5,7 @@ from io import StringIO
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3>")
+        buf.write("\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3=")
         buf.write("\u015e\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
         buf.write("\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16")
         buf.write("\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\4\23\t\23")
@@ -54,17 +54,17 @@ def serializedATN():
         buf.write("NP\5\4\3\2ON\3\2\2\2PS\3\2\2\2QO\3\2\2\2QR\3\2\2\2R\3")
         buf.write("\3\2\2\2SQ\3\2\2\2TY\5\6\4\2UY\5\b\5\2VY\5\16\b\2WY\5")
         buf.write("\20\t\2XT\3\2\2\2XU\3\2\2\2XV\3\2\2\2XW\3\2\2\2Y\5\3\2")
-        buf.write("\2\2Z[\7\3\2\2[\\\7:\2\2\\_\5\22\n\2]^\7\4\2\2^`\5,\27")
+        buf.write("\2\2Z[\7\3\2\2[\\\7;\2\2\\_\5\22\n\2]^\7\4\2\2^`\5,\27")
         buf.write("\2_]\3\2\2\2_`\3\2\2\2`a\3\2\2\2ab\7\5\2\2b\7\3\2\2\2")
-        buf.write("cd\7\6\2\2dg\7:\2\2eg\7\7\2\2fc\3\2\2\2fe\3\2\2\2gh\3")
+        buf.write("cd\7\6\2\2dg\7;\2\2eg\7\7\2\2fc\3\2\2\2fe\3\2\2\2gh\3")
         buf.write("\2\2\2hj\7\b\2\2ik\5\n\6\2ji\3\2\2\2jk\3\2\2\2kl\3\2\2")
         buf.write("\2ln\7\t\2\2mo\5\22\n\2nm\3\2\2\2no\3\2\2\2op\3\2\2\2")
         buf.write("pq\5\32\16\2q\t\3\2\2\2rw\5\f\7\2st\7\n\2\2tv\5\f\7\2")
         buf.write("us\3\2\2\2vy\3\2\2\2wu\3\2\2\2wx\3\2\2\2x\13\3\2\2\2y")
         buf.write("w\3\2\2\2z{\7\13\2\2{|\5\22\n\2|\r\3\2\2\2}~\7\f\2\2~")
-        buf.write("\177\7:\2\2\177\u0080\7\4\2\2\u0080\u0081\5\22\n\2\u0081")
+        buf.write("\177\7;\2\2\177\u0080\7\4\2\2\u0080\u0081\5\22\n\2\u0081")
         buf.write("\u0082\7\5\2\2\u0082\17\3\2\2\2\u0083\u0084\7\r\2\2\u0084")
-        buf.write("\u0085\7:\2\2\u0085\u0089\7\16\2\2\u0086\u0088\5\4\3\2")
+        buf.write("\u0085\7;\2\2\u0085\u0089\7\16\2\2\u0086\u0088\5\4\3\2")
         buf.write("\u0087\u0086\3\2\2\2\u0088\u008b\3\2\2\2\u0089\u0087\3")
         buf.write("\2\2\2\u0089\u008a\3\2\2\2\u008a\u008c\3\2\2\2\u008b\u0089")
         buf.write("\3\2\2\2\u008c\u008d\7\17\2\2\u008d\21\3\2\2\2\u008e\u0093")
@@ -102,7 +102,7 @@ def serializedATN():
         buf.write("\u00d3\u00d5\5\32\16\2\u00d4\u00d2\3\2\2\2\u00d4\u00d5")
         buf.write("\3\2\2\2\u00d5!\3\2\2\2\u00d6\u00d7\7\"\2\2\u00d7\u00d8")
         buf.write("\5,\27\2\u00d8\u00d9\5\32\16\2\u00d9#\3\2\2\2\u00da\u00db")
-        buf.write("\7#\2\2\u00db\u00dc\7:\2\2\u00dc\u00dd\7$\2\2\u00dd\u00de")
+        buf.write("\7#\2\2\u00db\u00dc\7;\2\2\u00dc\u00dd\7$\2\2\u00dd\u00de")
         buf.write("\5,\27\2\u00de\u00df\5\32\16\2\u00df%\3\2\2\2\u00e0\u00e2")
         buf.write("\7%\2\2\u00e1\u00e3\5,\27\2\u00e2\u00e1\3\2\2\2\u00e2")
         buf.write("\u00e3\3\2\2\2\u00e3\u00e4\3\2\2\2\u00e4\u00e5\7\5\2\2")
@@ -126,22 +126,22 @@ def serializedATN():
         buf.write("\3\2\2\2\u0112\u0114\5> \2\u0113\u010f\3\2\2\2\u0113\u0112")
         buf.write("\3\2\2\2\u0114;\3\2\2\2\u0115\u0116\t\6\2\2\u0116=\3\2")
         buf.write("\2\2\u0117\u0127\5@!\2\u0118\u0119\79\2\2\u0119\u0126")
-        buf.write("\7:\2\2\u011a\u011b\7\b\2\2\u011b\u0120\5,\27\2\u011c")
+        buf.write("\7;\2\2\u011a\u011b\7\b\2\2\u011b\u0120\5,\27\2\u011c")
         buf.write("\u011d\7\n\2\2\u011d\u011f\5,\27\2\u011e\u011c\3\2\2\2")
         buf.write("\u011f\u0122\3\2\2\2\u0120\u011e\3\2\2\2\u0120\u0121\3")
         buf.write("\2\2\2\u0121\u0123\3\2\2\2\u0122\u0120\3\2\2\2\u0123\u0124")
         buf.write("\7\t\2\2\u0124\u0126\3\2\2\2\u0125\u0118\3\2\2\2\u0125")
         buf.write("\u011a\3\2\2\2\u0126\u0129\3\2\2\2\u0127\u0125\3\2\2\2")
         buf.write("\u0127\u0128\3\2\2\2\u0128?\3\2\2\2\u0129\u0127\3\2\2")
-        buf.write("\2\u012a\u0131\7:\2\2\u012b\u0131\5B\"\2\u012c\u012d\7")
+        buf.write("\2\u012a\u0131\7;\2\2\u012b\u0131\5B\"\2\u012c\u012d\7")
         buf.write("\b\2\2\u012d\u012e\5,\27\2\u012e\u012f\7\t\2\2\u012f\u0131")
         buf.write("\3\2\2\2\u0130\u012a\3\2\2\2\u0130\u012b\3\2\2\2\u0130")
         buf.write("\u012c\3\2\2\2\u0131A\3\2\2\2\u0132\u0138\5D#\2\u0133")
         buf.write("\u0138\5F$\2\u0134\u0138\5H%\2\u0135\u0138\5J&\2\u0136")
         buf.write("\u0138\5L\'\2\u0137\u0132\3\2\2\2\u0137\u0133\3\2\2\2")
         buf.write("\u0137\u0134\3\2\2\2\u0137\u0135\3\2\2\2\u0137\u0136\3")
-        buf.write("\2\2\2\u0138C\3\2\2\2\u0139\u013a\7;\2\2\u013aE\3\2\2")
-        buf.write("\2\u013b\u013c\7<\2\2\u013cG\3\2\2\2\u013d\u013e\7=\2")
+        buf.write("\2\2\2\u0138C\3\2\2\2\u0139\u013a\7<\2\2\u013aE\3\2\2")
+        buf.write("\2\u013b\u013c\7:\2\2\u013cG\3\2\2\2\u013d\u013e\7=\2")
         buf.write("\2\u013eI\3\2\2\2\u013f\u014c\7\b\2\2\u0140\u0141\5,\27")
         buf.write("\2\u0141\u014a\7\n\2\2\u0142\u0147\5,\27\2\u0143\u0144")
         buf.write("\7\n\2\2\u0144\u0146\5,\27\2\u0145\u0143\3\2\2\2\u0146")
@@ -195,7 +195,7 @@ class ZeamplParser ( Parser ):
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "ID", "INT", "BOOL", "STRING", "UNTERMINATED_STRING" ]
+                      "BOOL", "ID", "INT", "STRING" ]
 
     RULE_module = 0
     RULE_decl = 1
@@ -301,11 +301,10 @@ class ZeamplParser ( Parser ):
     T__52=53
     T__53=54
     T__54=55
-    ID=56
-    INT=57
-    BOOL=58
+    BOOL=56
+    ID=57
+    INT=58
     STRING=59
-    UNTERMINATED_STRING=60
 
     def __init__(self, input:TokenStream):
         super().__init__(input)
@@ -1025,7 +1024,7 @@ class ZeamplParser ( Parser ):
                 self.state = 167
                 self.block()
 
-            elif token in [ZeamplParser.T__5, ZeamplParser.T__15, ZeamplParser.T__43, ZeamplParser.T__44, ZeamplParser.T__53, ZeamplParser.ID, ZeamplParser.INT, ZeamplParser.BOOL, ZeamplParser.STRING]:
+            elif token in [ZeamplParser.T__5, ZeamplParser.T__15, ZeamplParser.T__43, ZeamplParser.T__44, ZeamplParser.T__53, ZeamplParser.BOOL, ZeamplParser.ID, ZeamplParser.INT, ZeamplParser.STRING]:
                 self.enterOuterAlt(localctx, 2)
                 self.state = 168
                 self.exprStmt()
@@ -1108,7 +1107,7 @@ class ZeamplParser ( Parser ):
             self.state = 181
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << ZeamplParser.T__5) | (1 << ZeamplParser.T__11) | (1 << ZeamplParser.T__15) | (1 << ZeamplParser.T__28) | (1 << ZeamplParser.T__31) | (1 << ZeamplParser.T__32) | (1 << ZeamplParser.T__34) | (1 << ZeamplParser.T__35) | (1 << ZeamplParser.T__36) | (1 << ZeamplParser.T__43) | (1 << ZeamplParser.T__44) | (1 << ZeamplParser.T__53) | (1 << ZeamplParser.ID) | (1 << ZeamplParser.INT) | (1 << ZeamplParser.BOOL) | (1 << ZeamplParser.STRING))) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << ZeamplParser.T__5) | (1 << ZeamplParser.T__11) | (1 << ZeamplParser.T__15) | (1 << ZeamplParser.T__28) | (1 << ZeamplParser.T__31) | (1 << ZeamplParser.T__32) | (1 << ZeamplParser.T__34) | (1 << ZeamplParser.T__35) | (1 << ZeamplParser.T__36) | (1 << ZeamplParser.T__43) | (1 << ZeamplParser.T__44) | (1 << ZeamplParser.T__53) | (1 << ZeamplParser.BOOL) | (1 << ZeamplParser.ID) | (1 << ZeamplParser.INT) | (1 << ZeamplParser.STRING))) != 0):
                 self.state = 178
                 self.statement()
                 self.state = 183
@@ -1430,7 +1429,7 @@ class ZeamplParser ( Parser ):
             self.match(ZeamplParser.T__34)
             self.state = 224
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << ZeamplParser.T__5) | (1 << ZeamplParser.T__15) | (1 << ZeamplParser.T__43) | (1 << ZeamplParser.T__44) | (1 << ZeamplParser.T__53) | (1 << ZeamplParser.ID) | (1 << ZeamplParser.INT) | (1 << ZeamplParser.BOOL) | (1 << ZeamplParser.STRING))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << ZeamplParser.T__5) | (1 << ZeamplParser.T__15) | (1 << ZeamplParser.T__43) | (1 << ZeamplParser.T__44) | (1 << ZeamplParser.T__53) | (1 << ZeamplParser.BOOL) | (1 << ZeamplParser.ID) | (1 << ZeamplParser.INT) | (1 << ZeamplParser.STRING))) != 0):
                 self.state = 223
                 self.expr()
 
@@ -1904,7 +1903,7 @@ class ZeamplParser ( Parser ):
                 self.state = 270
                 self.expr2()
 
-            elif token in [ZeamplParser.T__5, ZeamplParser.T__15, ZeamplParser.ID, ZeamplParser.INT, ZeamplParser.BOOL, ZeamplParser.STRING]:
+            elif token in [ZeamplParser.T__5, ZeamplParser.T__15, ZeamplParser.BOOL, ZeamplParser.ID, ZeamplParser.INT, ZeamplParser.STRING]:
                 self.enterOuterAlt(localctx, 2)
                 self.state = 272
                 self.expr1()
@@ -2347,14 +2346,14 @@ class ZeamplParser ( Parser ):
             self.match(ZeamplParser.T__5)
             self.state = 330
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << ZeamplParser.T__5) | (1 << ZeamplParser.T__15) | (1 << ZeamplParser.T__43) | (1 << ZeamplParser.T__44) | (1 << ZeamplParser.T__53) | (1 << ZeamplParser.ID) | (1 << ZeamplParser.INT) | (1 << ZeamplParser.BOOL) | (1 << ZeamplParser.STRING))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << ZeamplParser.T__5) | (1 << ZeamplParser.T__15) | (1 << ZeamplParser.T__43) | (1 << ZeamplParser.T__44) | (1 << ZeamplParser.T__53) | (1 << ZeamplParser.BOOL) | (1 << ZeamplParser.ID) | (1 << ZeamplParser.INT) | (1 << ZeamplParser.STRING))) != 0):
                 self.state = 318
                 self.expr()
                 self.state = 319
                 self.match(ZeamplParser.T__7)
                 self.state = 328
                 _la = self._input.LA(1)
-                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << ZeamplParser.T__5) | (1 << ZeamplParser.T__15) | (1 << ZeamplParser.T__43) | (1 << ZeamplParser.T__44) | (1 << ZeamplParser.T__53) | (1 << ZeamplParser.ID) | (1 << ZeamplParser.INT) | (1 << ZeamplParser.BOOL) | (1 << ZeamplParser.STRING))) != 0):
+                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << ZeamplParser.T__5) | (1 << ZeamplParser.T__15) | (1 << ZeamplParser.T__43) | (1 << ZeamplParser.T__44) | (1 << ZeamplParser.T__53) | (1 << ZeamplParser.BOOL) | (1 << ZeamplParser.ID) | (1 << ZeamplParser.INT) | (1 << ZeamplParser.STRING))) != 0):
                     self.state = 320
                     self.expr()
                     self.state = 325
@@ -2419,7 +2418,7 @@ class ZeamplParser ( Parser ):
             self.match(ZeamplParser.T__15)
             self.state = 343
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << ZeamplParser.T__5) | (1 << ZeamplParser.T__15) | (1 << ZeamplParser.T__43) | (1 << ZeamplParser.T__44) | (1 << ZeamplParser.T__53) | (1 << ZeamplParser.ID) | (1 << ZeamplParser.INT) | (1 << ZeamplParser.BOOL) | (1 << ZeamplParser.STRING))) != 0):
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << ZeamplParser.T__5) | (1 << ZeamplParser.T__15) | (1 << ZeamplParser.T__43) | (1 << ZeamplParser.T__44) | (1 << ZeamplParser.T__53) | (1 << ZeamplParser.BOOL) | (1 << ZeamplParser.ID) | (1 << ZeamplParser.INT) | (1 << ZeamplParser.STRING))) != 0):
                 self.state = 335
                 self.expr()
                 self.state = 340

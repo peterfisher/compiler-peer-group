@@ -2,6 +2,7 @@ from .generated import ZeamplParser
 from .generated import ZeamplVisitor
 import antlr4
 import ast
+from parser.string_utils import unescape_string
 
 
 class ZeamplASTBuilder(ZeamplVisitor):
@@ -14,7 +15,15 @@ class ZeamplASTBuilder(ZeamplVisitor):
         file_name = start_tok.getInputStream().name
         return ast.Range(file_name, start_tok.line, start_tok.column + 1, end_tok.line, end_tok.column + 1)
 
-    def visitIntLiteral(self, ctx:ZeamplParser.IntLiteralContext):
-        return ast.IntLiteral(self.get_range(ctx), int(ctx.getText()))
+    def visitIntLiteral(self, ctx: ZeamplParser.IntLiteralContext):
+        value = int(ctx.getText())
+        return ast.IntLiteral(self.get_range(ctx), value)
 
+    def visitBoolLiteral(self, ctx: ZeamplParser.BoolLiteralContext):
+        value = {'true': True, 'false': False}[ctx.getText()]
+        return ast.BoolLiteral(self.get_range(ctx), value)
+
+    def visitStringLiteral(self, ctx: ZeamplParser.StringLiteralContext):
+        value = unescape_string(ctx.getText())
+        return ast.StringLiteral(self.get_range(ctx), value)
 

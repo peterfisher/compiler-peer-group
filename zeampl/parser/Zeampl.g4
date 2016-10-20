@@ -52,8 +52,16 @@ stringLiteral: STRING;
 tupleLiteral: '(' (expr ',' (expr (',' expr)* )? )? ')' ;
 listLiteral: '[' (expr (',' expr)* )? ']' ;
 
+BOOL: 'true' | 'false';
 ID: ('a'..'z'|'A'..'Z'|'_')('a'..'z'|'A'..'Z'|'0'..'9'|'_')* ;
 INT: ('0'..'9')+;
-BOOL: 'true' | 'false';
 STRING: UNTERMINATED_STRING '"';
-UNTERMINATED_STRING: '"' (~["\\\r\n] | '\\' (. | EOF))* ;
+fragment UNTERMINATED_STRING: '"' (~["\\\r\n] | '\\' ESCAPE)* ;
+fragment ESCAPE
+  : '\\' | '\'' | '\"'
+  | 'a' | 'b' | 'f' | 'n' | 'r' | 't' | 'v'
+  | 'x' HEX_DIGIT HEX_DIGIT
+  | 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+  | 'U' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+  ;
+fragment HEX_DIGIT: '0'..'9' | 'a'..'f' | 'A'..'F' ;
