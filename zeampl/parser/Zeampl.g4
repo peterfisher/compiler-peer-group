@@ -27,14 +27,17 @@ returnStmt: 'return' expr? ';' ;
 breakStmt: 'break' ';' ;
 continueStmt: 'continue' ';' ;
 
-expr: expr5;
-expr5: expr4 (expr5op expr4)*;
+expr
+  : expr1 # Atom
+  | op=expr2op x=expr # PrefixOp
+  | lhs=expr op=expr3op rhs=expr # BinaryOp
+  | lhs=expr op=expr4op rhs=expr # BinaryOp
+  | lhs=expr op=expr5op rhs=expr # BinaryOp
+  ;
+
 expr5op: '==' | '!=' | '<' | '>' | '>=' | '<=' ;
-expr4: expr3 (expr4op expr3)* ;
 expr4op: '+' | '-' | '|' | '^' ;
-expr3: expr2 (expr3op expr2)* ;
 expr3op: '*' | '/' | '%' | '&' | '<<' | '>>' ;
-expr2: (expr2op expr2) | expr1;
 expr2op: '+' | '-' | '!' ;
 
 expr1
@@ -67,4 +70,4 @@ fragment ESCAPE
   ;
 fragment HEX_DIGIT: '0'..'9' | 'a'..'f' | 'A'..'F' ;
 
-WS: (' ' | '\t' | '\n')+ -> skip;
+WS: (' ' | '\t' | '\n')+ -> channel(HIDDEN);

@@ -40,3 +40,14 @@ class ZeamplASTBuilder(ZeamplVisitor):
     def visitIdentifierExpression(self, ctx: ZeamplParser.IdentifierExpressionContext):
         token = ctx.ID().symbol  # type: antlr4.Token
         return ast.IdentifierExpression(self.get_range(ctx), token.text)
+
+    def visitPrefixOp(self, ctx: ZeamplParser.PrefixOpContext):
+        op = ctx.op.getChild(0).symbol  # type: antlr4.Token
+        return ast.PrefixOperatorExpression(self.get_range(ctx), op.text, ctx.x.accept(self))
+
+    def visitBinaryOp(self, ctx: ZeamplParser.BinaryOpContext):
+        op = ctx.op.getChild(0).symbol  # type: antlr4.Token
+        lhs = ctx.lhs.accept(self)
+        rhs = ctx.rhs.accept(self)
+        return ast.BinaryOperatorExpression(self.get_range(ctx), lhs, op.text, rhs)
+

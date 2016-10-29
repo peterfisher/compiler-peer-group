@@ -114,13 +114,18 @@ class ZeamplVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ZeamplParser#expr.
-    def visitExpr(self, ctx:ZeamplParser.ExprContext):
+    # Visit a parse tree produced by ZeamplParser#Atom.
+    def visitAtom(self, ctx:ZeamplParser.AtomContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ZeamplParser#expr5.
-    def visitExpr5(self, ctx:ZeamplParser.Expr5Context):
+    # Visit a parse tree produced by ZeamplParser#PrefixOp.
+    def visitPrefixOp(self, ctx:ZeamplParser.PrefixOpContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ZeamplParser#BinaryOp.
+    def visitBinaryOp(self, ctx:ZeamplParser.BinaryOpContext):
         return self.visitChildren(ctx)
 
 
@@ -129,28 +134,13 @@ class ZeamplVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ZeamplParser#expr4.
-    def visitExpr4(self, ctx:ZeamplParser.Expr4Context):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by ZeamplParser#expr4op.
     def visitExpr4op(self, ctx:ZeamplParser.Expr4opContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ZeamplParser#expr3.
-    def visitExpr3(self, ctx:ZeamplParser.Expr3Context):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by ZeamplParser#expr3op.
     def visitExpr3op(self, ctx:ZeamplParser.Expr3opContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ZeamplParser#expr2.
-    def visitExpr2(self, ctx:ZeamplParser.Expr2Context):
         return self.visitChildren(ctx)
 
 

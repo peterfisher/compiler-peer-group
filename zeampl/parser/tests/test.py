@@ -87,3 +87,29 @@ class TestParser(unittest.TestCase):
         x = parser.parse_expression('Xyz')
         self.assertIsInstance(x, ast.IdentifierExpression)
         self.assertEqual(x.name, 'Xyz')
+
+    def test_expr_priority(self):
+        x = parser.parse_expression('-1 + 2 * + 3')
+        self.assertIsInstance(x, ast.BinaryOperatorExpression)
+        self.assertEqual(x.range, ast.Range('<empty>', 1, 1, 1, 13))
+        x_lhs = x.lhs
+        self.assertIsInstance(x_lhs, ast.PrefixOperatorExpression)
+        self.assertEqual(x_lhs.range, ast.Range('<empty>', 1, 1, 1, 3))
+        self.assertEqual(x_lhs.op, '-')
+        self.assertIsInstance(x_lhs.expr, ast.IntLiteral)
+        self.assertEqual(x_lhs.expr.value, 1)
+        x_rhs = x.rhs
+        self.assertIsInstance(x_rhs, ast.BinaryOperatorExpression)
+        self.assertEqual(x_rhs.range, ast.Range('<empty>', 1, 6, 1, 13))
+        x_rhs_lhs = x_rhs.lhs
+        self.assertIsInstance(x_rhs_lhs, ast.IntLiteral)
+        self.assertEqual(x_rhs_lhs.range, ast.Range('<empty>', 1, 6, 1, 7))
+        self.assertEqual(x_rhs_lhs.value, 2)
+        x_rhs_rhs = x_rhs.rhs
+        self.assertIsInstance(x_rhs_rhs, ast.PrefixOperatorExpression)
+        self.assertEqual(x_rhs_rhs.range, ast.Range('<empty>', 1, 10, 1, 13))
+        self.assertEqual(x_rhs_rhs.op, '+')
+        x_rhs_rhs_expr = x_rhs_rhs.expr
+        self.assertIsInstance(x_rhs_rhs_expr, ast.IntLiteral)
+        self.assertEqual(x_rhs_rhs_expr.range, ast.Range('<empty>', 1, 12, 1, 13))
+        self.assertEqual(x_rhs_rhs_expr.value, 3)
