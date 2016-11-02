@@ -49,18 +49,23 @@ class ZeamplVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ZeamplParser#type_expr.
-    def visitType_expr(self, ctx:ZeamplParser.Type_exprContext):
+    # Visit a parse tree produced by ZeamplParser#typeExpr.
+    def visitTypeExpr(self, ctx:ZeamplParser.TypeExprContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ZeamplParser#list_type.
-    def visitList_type(self, ctx:ZeamplParser.List_typeContext):
+    # Visit a parse tree produced by ZeamplParser#idType.
+    def visitIdType(self, ctx:ZeamplParser.IdTypeContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ZeamplParser#tuple_type.
-    def visitTuple_type(self, ctx:ZeamplParser.Tuple_typeContext):
+    # Visit a parse tree produced by ZeamplParser#listType.
+    def visitListType(self, ctx:ZeamplParser.ListTypeContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ZeamplParser#tupleType.
+    def visitTupleType(self, ctx:ZeamplParser.TupleTypeContext):
         return self.visitChildren(ctx)
 
 

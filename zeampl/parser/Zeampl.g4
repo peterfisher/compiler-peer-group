@@ -4,17 +4,17 @@ module: decl* ;
 
 decl: varDecl | funcDecl | typeDecl | classDecl;
 
-varDecl: 'var' ID type_expr ('=' expr)? ';' ;
-funcDecl: ('func' ID | 'init') '(' argList? ')' type_expr? block;
+varDecl: 'var' ID typeExpr ('=' expr)? ';' ;
+funcDecl: ('func' ID | 'init') '(' argList? ')' typeExpr? block;
 argList: arg (',' arg)*;
-arg: 'ID' type_expr;
-typeDecl: 'type_expr' ID '=' type_expr ';' ;
+arg: 'ID' typeExpr;
+typeDecl: 'type' ID '=' typeExpr ';' ;
 classDecl: 'class' ID '{' decl* '}';
 
-type_expr: 'int' | 'bool' | list_type | tuple_type;
-list_type: '[' type_expr ']';
-tuple_type: '(' (type_expr ',' (type_expr (',' type_expr)* )? )? ')';
-
+typeExpr: idType | listType | tupleType;
+idType: ID ;
+listType: '[' typeExpr ']';
+tupleType: '(' (typeExpr ',' (typeExpr (',' typeExpr)* )? )? ')';
 
 statement: block | exprStmt | ifStmt | whileStmt | forStmt | returnStmt | breakStmt | continueStmt;
 block: '{' statement* '}';
