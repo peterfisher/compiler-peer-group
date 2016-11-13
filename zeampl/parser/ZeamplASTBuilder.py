@@ -51,3 +51,8 @@ class ZeamplASTBuilder(ZeamplVisitor):
         rhs = ctx.rhs.accept(self)
         return ast.BinaryOperatorExpression(self.get_range(ctx), lhs, op.text, rhs)
 
+    def visitExpr1(self, ctx: ZeamplParser.Expr1Context):
+        ID = ctx.ID()
+        name = ctx.expr0().getText()
+        return ast.FuncExpression(r=self.get_range(ctx), ID=ID, name=name)
+

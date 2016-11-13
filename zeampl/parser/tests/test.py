@@ -113,3 +113,17 @@ class TestParser(unittest.TestCase):
         self.assertIsInstance(x_rhs_rhs_expr, ast.IntLiteral)
         self.assertEqual(x_rhs_rhs_expr.range, ast.Range('<empty>', 1, 12, 1, 13))
         self.assertEqual(x_rhs_rhs_expr.value, 3)
+
+    def test_function_expression(self):
+        tests = [
+            # Func calls
+            'skittles', 'skittles(rainbox)', 'skittles(taste, rainbow)',
+            # Method calls
+            'rainbow.skittles', 'rainbow.skittles(taste)', 'rainbow.skittles(taste, skookum)',
+        ]
+
+        for case in tests:
+            result = parser.parse_expression(case)
+            self.assertIsInstance(result, ast.FuncExpression)
+
+
