@@ -41,11 +41,11 @@ expr3op: '*' | '/' | '%' | '&' | '<<' | '>>' ;
 expr2op: '+' | '-' | '!' ;
 
 expr1
-  : expr0
-    ( '.' ID
-    | '(' expr (',' expr)* ')'
-    )*
+  : expr0 # Atom0
+  | expr1 '.' ID # MemberAccess
+  | expr1 '(' args+=expr (',' args+=expr)* ')' # Call
   ;
+
 
 expr0: identifierExpression | literal | '(' expr ')' ;
 identifierExpression: ID ;

@@ -154,8 +154,18 @@ class ZeamplVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ZeamplParser#expr1.
-    def visitExpr1(self, ctx:ZeamplParser.Expr1Context):
+    # Visit a parse tree produced by ZeamplParser#Call.
+    def visitCall(self, ctx:ZeamplParser.CallContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ZeamplParser#MemberAccess.
+    def visitMemberAccess(self, ctx:ZeamplParser.MemberAccessContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ZeamplParser#Atom0.
+    def visitAtom0(self, ctx:ZeamplParser.Atom0Context):
         return self.visitChildren(ctx)
 
 
